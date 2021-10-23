@@ -10,6 +10,10 @@ https://github.com/fonttools/region-flags
 World Cities Database
 https://simplemaps.com/data/world-cities
 
+TAKEOFF Rules
+
+http://www.flyingclippers.com/postflight/take-off-rules.pdf
+
 
 ### Streaming & Recorded Videos
 

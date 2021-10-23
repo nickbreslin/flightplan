@@ -1,13 +1,15 @@
-<template>here.</template>
+<template>
+  <Cities />
+</template>
 
 <script>
 // @ is an alias to /src
 
-//import TheDatastore from "@/components/TheDatastore.vue";
+import Cities from "@/views/Cities";
 
 export default {
   name: "App",
-  components: {},
+  components: { Cities },
   data: function () {
     return {};
   },
@@ -16,7 +18,4 @@ export default {
 };
 </script>
 
-<style scoped>
-div {
-}
-</style>
+<style scoped></style>
