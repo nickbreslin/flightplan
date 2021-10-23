@@ -27,11 +27,18 @@
       </div>
     </div>
   </div>
+  {{ capitals.length }}
 </template>
 
 <script>
+import capitals from "@/data/worldcapitals.json";
 export default {
   name: "Main",
   components: {},
+  data: function () {
+    return {
+      capitals: capitals,
+    };
+  },
 };
 </script>

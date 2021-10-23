@@ -1,15 +1,15 @@
 <template>
-  <Cities />
+  <Main />
 </template>
 
 <script>
 // @ is an alias to /src
 
-import Cities from "@/views/Cities";
+import Main from "@/views/Main";
 
 export default {
   name: "App",
-  components: { Cities },
+  components: { Main },
   data: function () {
     return {};
   },
