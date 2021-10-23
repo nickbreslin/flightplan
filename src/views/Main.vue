@@ -27,7 +27,12 @@
       </div>
     </div>
   </div>
-  {{ capitals.length }}
+  <div class="row">
+    <div class="col" v-for="city in capitals" :key="city.iso2">
+      <p>{{ city.city }}</p>
+      <img :src="getFlag(city.iso2)" style="width: 100px" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -39,6 +44,17 @@ export default {
     return {
       capitals: capitals,
     };
+  },
+  methods: {
+    getFlag(iso2) {
+      let path = "";
+      try {
+        path = require(`@/assets/svg/${iso2}.svg`);
+      } catch (error) {
+        console.log(error);
+      }
+      return path;
+    },
   },
 };
 </script>
