@@ -1,13 +1,14 @@
 #app {
-	font-family: 'Roboto Mono', monospace;
+	font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight:400;
 }
 
-* {
-  color: #ddd;
+h1,h2, h3, .h1, .h2, .h3 {
+font-family: 'Saira Stencil One', cursive;
 }
+
 
 .text-small {
   font-size: 0.85em;

@@ -3,6 +3,14 @@ Vue3, Bootstrap 5, Bootstrap Icons project boilerplate
 
 Theme: Around the world
 
+
+World Maps
+https://github.com/fonttools/region-flags
+
+World Cities Database
+https://simplemaps.com/data/world-cities
+
+
 ### Streaming & Recorded Videos
 
 [Twitch](https://www.twitch.tv/nickbreslin)
