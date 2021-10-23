@@ -28,9 +28,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-3" v-for="city in orderByLat" :key="city.iso2">
-      <p>{{ city.city }} ({{ city.country }})<br />({{ city.lat }})</p>
+    <div
+      class="col-3 border-bottom mb-3 pb-3"
+      v-for="city in orderByLat"
+      :key="city.iso2"
+    >
       <img :src="getFlag(city.iso2)" style="width: 100px" />
+      <p>{{ city.city }} ({{ city.country }})<br />({{ city.lat }})</p>
+      <p v-for="route in city.routes" :key="route.city">
+        ROUTE: {{ route.city }}
+      </p>
     </div>
   </div>
 </template>
@@ -65,6 +72,36 @@ export default {
       }
       return path;
     },
+    findClosestRoute(city) {
+      let possible = this.orderByLat.filter(
+        (capital) => parseFloat(capital.lat) > parseFloat(city.lat)
+      );
+
+      possible = possible.filter((capital) => {
+        let alreadyARoute = city.routes.filter(
+          (route) => route.city == capital.city
+        );
+
+        if (alreadyARoute.length) {
+          return false;
+        }
+
+        return true;
+      });
+
+      return { ...possible[0] };
+    },
+  },
+  mounted() {
+    this.capitals = this.capitals.map((city) => {
+      city.routes = [];
+      city.routes.push(this.findClosestRoute(city));
+      city.routes.push(this.findClosestRoute(city));
+      city.routes.push(this.findClosestRoute(city));
+      city.routes.push(this.findClosestRoute(city));
+
+      return city;
+    });
   },
 };
 </script>
