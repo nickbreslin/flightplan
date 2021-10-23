@@ -28,8 +28,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col" v-for="city in capitals" :key="city.iso2">
-      <p>{{ city.city }}</p>
+    <div class="col-3" v-for="city in orderByLat" :key="city.iso2">
+      <p>{{ city.city }} ({{ city.country }})<br />({{ city.lat }})</p>
       <img :src="getFlag(city.iso2)" style="width: 100px" />
     </div>
   </div>
@@ -37,6 +37,7 @@
 
 <script>
 import capitals from "@/data/worldcapitals.json";
+
 export default {
   name: "Main",
   components: {},
@@ -45,13 +46,22 @@ export default {
       capitals: capitals,
     };
   },
+  computed: {
+    orderByLat() {
+      let toOrder = this.capitals;
+      let ordered = toOrder.sort((a, b) =>
+        parseFloat(a.lat) > parseFloat(b.lat) ? 1 : -1
+      );
+      return ordered;
+    },
+  },
   methods: {
     getFlag(iso2) {
       let path = "";
       try {
         path = require(`@/assets/svg/${iso2}.svg`);
       } catch (error) {
-        console.log(error);
+        console.log("No Flag", iso2);
       }
       return path;
     },
