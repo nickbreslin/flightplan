@@ -1,5 +1,7 @@
-# vue3-bootstrap5-boilerplate
+# Flight Plan
 Vue3, Bootstrap 5, Bootstrap Icons project boilerplate
+
+Theme: Around the world
 
 ### Streaming & Recorded Videos
 
